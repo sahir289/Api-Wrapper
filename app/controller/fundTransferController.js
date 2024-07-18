@@ -1,6 +1,6 @@
 import { envHandler } from "../config/envConfig.js";
 import { DefaultResponse } from "../helper/customResponse.js";
-import { generateHash } from "../helper/hashCalculator.js";
+import { generateHash, generateHashPayout } from "../helper/hashCalculator.js";
 import { CustomError } from "../middleware/errorHandler.js";
 import fundTransferRepo from "../repository/fundTransferRepo.js";
 
@@ -10,10 +10,10 @@ class FundTransferController {
 
             const data = {
               ...req?.body,
-              api_key: envHandler.PAY_IN_API_KEY
+              api_key: envHandler.PAY_OUT_API_KEY
             }
 
-            const generatedHash = generateHash(data);
+            const generatedHash = generateHashPayout(data);
             console.log("🚀 ~ FundTransferController ~ fundTransfer ~ generatedHash:", generatedHash)
             
             const updateData = {
@@ -50,7 +50,7 @@ class FundTransferController {
 
             const data = {
               ...req?.body,
-              api_key: envHandler.PAY_IN_API_KEY
+              api_key: envHandler.PAY_OUT_API_KEY
             }
 
             const generatedHash = generateHash(data);
