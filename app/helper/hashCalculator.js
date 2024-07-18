@@ -16,6 +16,7 @@ export function generateHash(parameters) {
 
 export function generateHashPayout(parameters) {
     let hashData = envHandler.PAY_OUT_SALT;
+    console.log("🚀 ~ generateHashPayout ~ hashData:", hashData)
     Object.keys(parameters).sort().forEach(key => {
         const value = parameters[key];
         if (value && value.length > 0) {
