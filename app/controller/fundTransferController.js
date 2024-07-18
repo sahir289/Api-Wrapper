@@ -9,24 +9,18 @@ class FundTransferController {
         try {
 
             const data = {
-              ...req?.body,
-              api_key: envHandler.PAY_OUT_API_KEY
+                ...req?.body,
+                api_key: envHandler.PAY_OUT_API_KEY
             }
 
             const generatedHash = generateHashPayout(data);
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ generatedHash:", generatedHash)
-            
             const updateData = {
                 ...data,
                 hash: generatedHash,
-               
-            }
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ updateData:", updateData)
 
+            }
 
             const fundTransferRes = await fundTransferRepo.fundTransferRepo(updateData)
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ fundTransferRes:", fundTransferRes)
-
             if (fundTransferRes?.error) {
                 throw new CustomError(fundTransferRes?.error?.code, fundTransferRes?.error?.message)
             }
@@ -40,7 +34,6 @@ class FundTransferController {
             );
 
         } catch (error) {
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ error:", error)
             next(error)
         }
     }
@@ -49,24 +42,18 @@ class FundTransferController {
         try {
 
             const data = {
-              ...req?.body,
-              api_key: envHandler.PAY_OUT_API_KEY
+                ...req?.body,
+                api_key: envHandler.PAY_OUT_API_KEY
             }
 
-            const generatedHash = generateHash(data);
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ generatedHash:", generatedHash)
-            
+            const generatedHash = generateHashPayout(data);
             const updateData = {
                 ...data,
                 hash: generatedHash,
-               
-            }
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ updateData:", updateData)
 
+            }
 
             const fundTransferResStatus = await fundTransferRepo.fundTransferStatusRepo(updateData)
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ fundTransferResStatus:", fundTransferResStatus)
-
             if (fundTransferResStatus?.error) {
                 throw new CustomError(fundTransferResStatus?.error?.code, fundTransferResStatus?.error?.message)
             }
@@ -80,7 +67,6 @@ class FundTransferController {
             );
 
         } catch (error) {
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ error:", error)
             next(error)
         }
     }
@@ -89,15 +75,15 @@ class FundTransferController {
         try {
 
             const data = {
-              api_key: envHandler.PAY_IN_API_KEY
+                api_key: envHandler.PAY_OUT_API_KEY
             }
 
-            const generatedHash = generateHash(data);
-            
+            const generatedHash = generateHashPayout(data);
+
             const updateData = {
                 ...data,
                 hash: generatedHash,
-               
+
             }
 
 
@@ -124,24 +110,18 @@ class FundTransferController {
         try {
 
             const data = {
-              ...req?.body,
-              api_key: envHandler.PAY_IN_API_KEY
+                ...req?.body,
+                api_key: envHandler.PAY_OUT_API_KEY
             }
 
-            const generatedHash = generateHash(data);
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ generatedHash:", generatedHash)
-            
+            const generatedHash = generateHashPayout(data);
             const updateData = {
                 ...data,
                 hash: generatedHash,
-               
-            }
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ updateData:", updateData)
 
+            }
 
             const fundTransferWhitelistingRes = await fundTransferRepo.fundTransferWhitelistingRepo(updateData)
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ fundTransferWhitelistingRes:", fundTransferWhitelistingRes)
-
             if (fundTransferWhitelistingRes?.error) {
                 throw new CustomError(fundTransferWhitelistingRes?.error?.code, fundTransferWhitelistingRes?.error?.message)
             }
@@ -155,7 +135,6 @@ class FundTransferController {
             );
 
         } catch (error) {
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ error:", error)
             next(error)
         }
     }
@@ -164,24 +143,18 @@ class FundTransferController {
         try {
 
             const data = {
-              ...req?.body,
-              api_key: envHandler.PAY_IN_API_KEY
+                ...req?.body,
+                api_key: envHandler.PAY_OUT_API_KEY
             }
 
-            const generatedHash = generateHash(data);
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ generatedHash:", generatedHash)
-            
+            const generatedHash = generateHashPayout(data);
             const updateData = {
                 ...data,
                 hash: generatedHash,
-               
-            }
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ updateData:", updateData)
 
+            }
 
             const fundTransferWhitelistingTeamRes = await fundTransferRepo.fundTransferWhitelistingTeamRepo(updateData)
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ fundTransferWhitelistingTeamRes:", fundTransferWhitelistingTeamRes)
-
             if (fundTransferWhitelistingTeamRes?.error) {
                 throw new CustomError(fundTransferWhitelistingTeamRes?.error?.code, fundTransferWhitelistingTeamRes?.error?.message)
             }
@@ -195,7 +168,6 @@ class FundTransferController {
             );
 
         } catch (error) {
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ error:", error)
             next(error)
         }
     }
@@ -204,24 +176,18 @@ class FundTransferController {
         try {
 
             const data = {
-              ...req?.body,
-              api_key: envHandler.PAY_IN_API_KEY
+                ...req?.body,
+                api_key: envHandler.PAY_OUT_API_KEY
             }
 
-            const generatedHash = generateHash(data);
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ generatedHash:", generatedHash)
-            
+            const generatedHash = generateHashPayout(data);
             const updateData = {
                 ...data,
                 hash: generatedHash,
-               
-            }
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ updateData:", updateData)
 
+            }
 
             const fundTransferGetStatementRes = await fundTransferRepo.fundTransferGetStatementRepo(updateData)
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ fundTransferGetStatementRes:", fundTransferGetStatementRes)
-
             if (fundTransferGetStatementRes?.error) {
                 throw new CustomError(fundTransferGetStatementRes?.error?.code, fundTransferGetStatementRes?.error?.message)
             }
@@ -235,7 +201,6 @@ class FundTransferController {
             );
 
         } catch (error) {
-            console.log("🚀 ~ FundTransferController ~ fundTransfer ~ error:", error)
             next(error)
         }
     }
